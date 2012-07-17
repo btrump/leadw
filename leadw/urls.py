@@ -1,8 +1,11 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls.defaults import * # import patterns, include, url
+from montyhall.api import MontyHallResultResource
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
+
+monty_hall_result_resource = MontyHallResultResource()
 
 urlpatterns = patterns('',
     # Examples:
@@ -14,4 +17,5 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
+    (r'^api/', include(monty_hall_result_resource.urls)),
 )
