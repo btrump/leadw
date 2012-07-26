@@ -15,7 +15,7 @@ class Paginator(object):
     ``total_count`` of resources seen and convenience links to the
     ``previous``/``next`` pages of data as available.
     """
-    def __init__(self, request_data, objects, resource_uri=None, limit=None, offset=0, max_limit=1000, collection_name='objects'):
+    def __init__(self, request_data, objects, resource_uri=None, limit=0, offset=0, max_limit=0, collection_name='objects'):
         """
         Instantiates the ``Paginator`` and allows for some configuration.
 

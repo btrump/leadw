@@ -1,4 +1,5 @@
 # Django settings for leadw project.
+import logging
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -99,6 +100,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django-crossdomainxhr-middleware.XsSharing',
 )
 
 ROOT_URLCONF = 'leadw.urls'
@@ -132,6 +134,14 @@ INSTALLED_APPS = (
 # the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
+logging.basicConfig(
+    level = logging.DEBUG,
+    format = '%(asctime)s %(levelname)s %(message)s',
+    filename = '/var/log/django.log',
+)
+
+APPEND_SLASH=False
+"""
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -155,3 +165,5 @@ LOGGING = {
         },
     }
 }
+"""
+
